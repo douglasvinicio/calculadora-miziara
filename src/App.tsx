@@ -1,32 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
+import {useState} from 'react'
 
-function App() {
-  const [count, setCount] = useState(0)
+function App() {  
 
+  const materiais = ["Madeira", "Pedra Marmore"]; 
+  const formula = ["1- Formula - X / Servico", "2- Formula - X / Servico", "3- Formula - X / Servico"];   
+  const [materialSelected, setMaterialSelected] = useState(materiais[0])
+  const [formulaSelected, setFormulaSelected] = useState(formula[0])
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h2 className="text-center pt-5 pb-4">Calculadora X</h2>
+      
+      <form className="text-center">
+      <label className="h5">Formula:</label>
+      <select className="m-2 mb-3" 
+       value={formulaSelected} 
+       onChange={e => setFormulaSelected(e.target.value)}>
+        {formula.map((value) => (
+          <option value={value} key={value}>
+            {value}
+          </option>
+        ))}
+      </select>
+      <br />
+      <label className="h5">Material:</label>
+      <select className="m-2 mb-3" 
+       value={materialSelected} 
+       onChange={e => setMaterialSelected(e.target.value)}>
+        {materiais.map((value) => (
+          <option value={value} key={value}>
+            {value}
+          </option>
+        ))}
+      </select>
+      
+    </form>
     </div>
   )
 }
