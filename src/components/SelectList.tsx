@@ -1,7 +1,7 @@
 import Select from 'react-select'
 import { useState } from 'react'
 
-export interface ColourOption {
+export interface selectOption {
     readonly value: string;
     readonly label: string;
     readonly color: string;
@@ -17,17 +17,11 @@ export default function SelectList() {
     const [isLoading, setIsLoading] = useState(false);
     const [isRtl, setIsRtl] = useState(false);
 
-    const colourOptions: readonly ColourOption[] = [
-        { value: 'ocean', label: 'Ocean', color: '#fff', isFixed: true },
-        { value: 'blue', label: 'Blue', color: '#0052CC', isDisabled: true },
-        { value: 'purple', label: 'Purple', color: '#5243AA' },
-        { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
-        { value: 'orange', label: 'Orange', color: '#FF8B00' },
-        { value: 'yellow', label: 'Yellow', color: '#FFC400' },
-        { value: 'green', label: 'Green', color: '#36B37E' },
-        { value: 'forest', label: 'Forest', color: '#00875A' },
-        { value: 'slate', label: 'Slate', color: '#253858' },
-        { value: 'silver', label: 'Silver', color: '#666666' },
+    const selectOptions: readonly selectOption[] = [
+        { value: 'Formula X - 1', label: 'Formula X - 1', color: '#fff', isFixed: true },
+        { value: 'Formula X - 2', label: 'Formula X - 2', color: '#0052CC', isDisabled: true },
+        { value: 'Formula X - 3', label: 'Formula X - 3', color: '#5243AA' },
+        { value: 'Formula X - 4', label: 'Formula X - 4', color: '#FF5630', isFixed: true }
     ];
 
     return (
@@ -35,14 +29,14 @@ export default function SelectList() {
             placeholder="Formula"
             className="basic-single"
             classNamePrefix="select"
-            defaultValue={colourOptions[0]}
+            defaultValue={selectOptions[0]}
             isDisabled={isDisabled}
             isLoading={isLoading}
             isClearable={isClearable}
             isRtl={isRtl}
             isSearchable={isSearchable}
             name="color"
-            options={colourOptions}
+            options={selectOptions}
         />
     )
 }
